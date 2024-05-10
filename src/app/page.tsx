@@ -15,14 +15,12 @@ const mockImages = mockUrls.map((url, index) => ({
 
 export default function HomePage() {
   return (
-    <main className="">
-      <div className="flex flex-wrap">
-        {[...mockImages, ...mockImages, ...mockImages].map((image) => (
-          <div key={image.id} className="max-h-48 w-48 p-4">
-            <Image src={image.url} alt="alt" width={150} height={150} />
-          </div>
-        ))}
-      </div>
-    </main>
+    <div className="grid max-w-[800px] grid-cols-12 gap-4 m-4">
+      {[...mockImages, ...mockImages, ...mockImages].map((image) => (
+        <div key={image.id} className="col-span-3 max-h-32 max-w-32">
+          <Image src={image.url} alt="alt" width={128} height={128} />
+        </div>
+      ))}
+    </div>
   );
 }

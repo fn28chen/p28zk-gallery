@@ -1,9 +1,9 @@
 import "~/styles/globals.css";
 
-import { Inter } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 import { StyledHeader } from "~/components/global/Styled";
 
-const inter = Inter({
+const font = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-sans",
 });
@@ -17,7 +17,7 @@ export const metadata = {
 function TopNav() {
   return (
     <nav className="flex w-full items-center justify-between border-b p-4 text-xl">
-      <StyledHeader tag="h1" children="Gallery" />
+      <StyledHeader tag="h2" children="Gallery" />
     </nav>
   );
 }
@@ -29,9 +29,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`font-sans ${inter.variable} flex-col gap-4`}>
+      <body className={`font-sans ${font.variable} flex-col gap-4`}>
         <TopNav />
-        {children}
+        <main className="flex items-center justify-center">{children}</main>
       </body>
     </html>
   );
