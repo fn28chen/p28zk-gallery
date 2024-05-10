@@ -5,6 +5,26 @@
 await import("./src/env.js");
 
 /** @type {import("next").NextConfig} */
-const config = {};
+const config = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "avatars.githubusercontent.com",
+        pathname: "**",
+      },
+      {
+        protocol: "https",
+        hostname: "utfs.io",
+        pathname: "**",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+        pathname: "**",
+      },
+    ],
+  },
+};
 
 export default config;

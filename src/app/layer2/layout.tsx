@@ -1,7 +1,6 @@
 import "~/styles/globals.css";
 
 import { Inter } from "next/font/google";
-import { StyledHeader } from "~/components/global/Styled";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -14,25 +13,15 @@ export const metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
-function TopNav() {
-  return (
-    <nav className="flex w-full items-center justify-between border-b p-4 text-xl">
-      <StyledHeader tag="h1" children="Gallery" />
-    </nav>
-  );
-}
-
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`font-sans ${inter.variable} flex-col gap-4`}>
-        <TopNav />
-        {children}
-      </body>
-    </html>
+    <div className="w-full">
+      2nd Layout
+      {children}
+    </div>
   );
 }
