@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { getMyImages } from "~/server/queries";
+import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
@@ -16,18 +17,19 @@ async function Images() {
           key={image.id}
           className="col-span-3 max-h-48 max-w-48 overflow-hidden"
         >
-          <Image
-            src={image.url}
-            title={image.name}
-            alt="alt"
-            width={192}
-            height={192}
-            className="group object-cover"
-          />
+          <Link href={`/img/${image.id}`}>
+            <Image
+              src={image.url}
+              style={{ objectFit: "contain" }}
+              width={192}
+              height={192}
+              alt={image.name}
+            />
+          </Link>
         </div>
       ))}
     </div>
-  )
+  );
 }
 
 export default async function HomePage() {
