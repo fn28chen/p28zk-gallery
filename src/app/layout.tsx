@@ -1,7 +1,8 @@
 import "~/styles/globals.css";
 
 import { Space_Grotesk } from "next/font/google";
-import { StyledHeader } from "~/components/global/Styled";
+import { ClerkProvider } from "@clerk/nextjs";
+import TopNav from "~/components/layout/TopNav";
 
 const font = Space_Grotesk({
   subsets: ["latin"],
@@ -14,25 +15,19 @@ export const metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
-function TopNav() {
-  return (
-    <nav className="flex w-full items-center justify-between border-b p-4 text-xl">
-      <StyledHeader tag="h2" children="Gallery" />
-    </nav>
-  );
-}
-
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`font-sans ${font.variable} flex-col gap-4`}>
-        <TopNav />
-        <main className="flex items-center justify-center">{children}</main>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={`font-sans ${font.variable} flex-col gap-4`}>
+          <TopNav />
+          <main className="flex items-center justify-center">{children}</main>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
