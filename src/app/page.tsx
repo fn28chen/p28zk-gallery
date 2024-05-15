@@ -11,11 +11,11 @@ export default async function HomePage() {
   });
   console.log(images);
   return (
-    <div className="grid max-w-[1200px] grid-cols-12 gap-4 m-4">
-      {[...images, ...images, ...images].map((image, index) => (
-        <div key={image.id + "-" + index} className="col-span-3 max-h-32 max-w-32">
+    <div className="grid max-w-[1024px] grid-cols-12 gap-4 m-4">
+      {images.map((image, index) => (
+        <div key={image.id + "-" + index} className="col-span-3 max-h-64 max-w-64">
           {image.name}
-          <Image src={image.url} alt="alt" width={128} height={128} />
+          <Image src={image.url} alt="alt" width={256} height={256} />
         </div>
       ))}
     </div>
