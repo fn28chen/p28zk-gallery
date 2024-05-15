@@ -5,26 +5,27 @@ import { UploadButton } from "~/utils/uploadthing";
 import { useRouter } from "next/navigation";
 
 export default function TopNav() {
-
   const router = useRouter();
 
   return (
     <nav className="flex w-full items-center justify-between border-b p-4 text-xl">
       <StyledHeader tag="h2" children="Gallery" />
-      
+
       <div className="flex flex-row gap-4">
         <SignedOut>
-            <SignInButton/>
+          <SignInButton />
         </SignedOut>
         <SignedIn>
-            <UploadButton endpoint="imageUploader"
+          <UploadButton
+            endpoint="imageUploader"
             onClientUploadComplete={() => {
               router.refresh();
-            }}/>
-            <UserButton/>
+            }}
+            className="mt-4 ut-button:bg-blue-500 ut:button:ut-readying:bg-blue-500/50 text-sm"
+          />
+          <UserButton />
         </SignedIn>
       </div>
-      
     </nav>
   );
 }

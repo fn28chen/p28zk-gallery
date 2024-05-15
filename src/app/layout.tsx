@@ -4,6 +4,9 @@ import "@uploadthing/react/styles.css";
 import { Space_Grotesk } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import TopNav from "~/components/layout/TopNav";
+import { extractRouterConfig } from "uploadthing/server";
+import { ourFileRouter } from "./api/uploadthing/core";
+import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 
 const font = Space_Grotesk({
   subsets: ["latin"],
@@ -23,6 +26,15 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
+      <NextSSRPlugin
+          /**
+           * The `extractRouterConfig` will extract **only** the route configs
+           * from the router to prevent additional information from being
+           * leaked to the client. The data passed to the client is the same
+           * as if you were to fetch `/api/uploadthing` directly.
+           */
+          routerConfig={extractRouterConfig(ourFileRouter)}
+        />
       <html lang="en">
         <body className={`font-sans ${font.variable} flex-col gap-4`}>
           <TopNav />
