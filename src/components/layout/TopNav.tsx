@@ -12,7 +12,7 @@ export default function TopNav() {
     <nav className="flex w-full items-center justify-between border-b p-4 text-xl">
       <StyledHeader tag="h2" children="Gallery" />
       
-      <div className="flex flex-row">
+      <div className="flex flex-row gap-4">
         <SignedOut>
             <SignInButton/>
         </SignedOut>

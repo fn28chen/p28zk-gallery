@@ -21,13 +21,12 @@ export const ourFileRouter = {
       return { userId: user.userId };
     })
     .onUploadComplete(async ({ metadata, file }) => {
-      // This code RUNS ON YOUR SERVER after upload
-      console.log("Upload complete for userId:", metadata.userId);
 
       // Insert the image into the database
       await db.insert(images).values({
         name: file.name,
         url: file.url,
+        userId: metadata.userId,
       })
  
       console.log("file url", file.url);
