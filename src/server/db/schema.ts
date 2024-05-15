@@ -18,6 +18,7 @@ import {
  */
 export const createTable = pgTableCreator((name) => `p28zk-gallery_${name}`);
 
+
 export const posts = createTable(
   "post",
   {
