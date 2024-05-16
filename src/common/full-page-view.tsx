@@ -17,7 +17,7 @@ export async function FullPageImageView(props: { photoId: string }) {
       <Link href="/">
         <Button
           variant="outline"
-          className="self-start"
+          className="self-start items-start justify-start"
         >
           <FiArrowLeft size={24} />
         </Button>
