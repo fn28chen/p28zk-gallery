@@ -39,7 +39,7 @@ export default function RootLayout({
          */
         routerConfig={extractRouterConfig(ourFileRouter)}
       />
-      <html lang="en">
+      <html lang="en" suppressHydrationWarning>
         <body className={`font-sans ${font.variable} flex-col gap-4`}>
           <ThemeProvider
             attribute="class"
