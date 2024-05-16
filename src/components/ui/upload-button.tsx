@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useUploadThing } from "~/utils/uploadthing";
 import { toast } from "sonner";
+import { Button } from "./button";
 
 // inferred input off useUploadThing
 type Input = Parameters<typeof useUploadThing>;
@@ -98,7 +99,9 @@ export function SimpleUploadButton() {
   });
 
   return (
-    <div>
+    <Button
+        variant="outline"
+    >
       <label htmlFor="upload-button" className="cursor-pointer">
         <UploadSVG />
       </label>
@@ -108,6 +111,6 @@ export function SimpleUploadButton() {
         className="sr-only"
         {...inputProps}
       />
-    </div>
+    </Button>
   );
 }

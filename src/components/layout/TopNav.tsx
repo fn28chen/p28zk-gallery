@@ -8,6 +8,7 @@ import { SimpleUploadButton } from "../ui/upload-button";
 import { useTheme } from "next-themes";
 
 import { FiMoon, FiSun } from "react-icons/fi";
+import { Button } from "../ui/button";
 
 export default function TopNav() {
   const router = useRouter();
@@ -19,27 +20,27 @@ export default function TopNav() {
         <StyledHeader tag="h2" children="Gallery" />
       </Link>
 
-      <div className="flex flex-row gap-4">
+      <div className="flex flex-row gap-2">
         <SignedOut>
           <SignInButton />
-          <button
+          <Button
             className="flex w-full items-center justify-center rounded bg-zinc-700 shadow duration-300 ease-in-out hover:scale-110 hover:bg-zinc-800 hover:shadow-xl dark:bg-zinc-800 dark:hover:bg-zinc-700"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           >
             <div className="p-2 text-zinc-100">
               {theme === "dark" ? <FiMoon /> : <FiSun />}
             </div>
-          </button>
+          </Button>
         </SignedOut>
         <SignedIn>
-          <button
-            className="flex w-full items-center justify-center rounded bg-zinc-700 shadow duration-300 ease-in-out hover:scale-110 hover:bg-zinc-800 hover:shadow-xl dark:bg-zinc-800 dark:hover:bg-zinc-700"
+          <Button
+            variant="outline"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           >
-            <div className="p-2 text-zinc-100">
+            <div className="text-zinc-900 dark:text-zinc-100">
               {theme === "dark" ? <FiMoon /> : <FiSun />}
             </div>
-          </button>
+          </Button>
           <SimpleUploadButton />
           <UserButton />
         </SignedIn>
