@@ -12,13 +12,17 @@ export async function FullPageImageView(props: { photoId: string }) {
   const userInfo = await clerkClient.users.getUser(image.userId);
 
   return (
-    <div className="flex h-full w-screen min-w-0 items-center justify-center text-white">
+    <div className="flex h-full w-screen min-w-0 text-white">
       <Button
         variant="outline"
+        onClick={() => {
+          window.history.back();
+        }}
+        className="flex-start"
       >
         <FiArrowLeft size={24} />
       </Button>
-      <div className="md:max-w-[768px] lg:max-w-[1024px] xl:w-full">
+      <div className="items-center justify-center h-full md:max-w-[768px] lg:max-w-[1024px] xl:w-full">
         <img src={image.url} className="object-contain" alt={image.name} />
       </div>
       <div className="flex h-full w-40 flex-shrink-0 flex-col border-l md:w-56 lg:w-72">
