@@ -15,10 +15,7 @@ export async function FullPageImageView(props: { photoId: string }) {
     <div className="flex h-full w-screen min-w-0 text-white">
       <Button
         variant="outline"
-        onClick={() => {
-          window.history.back();
-        }}
-        className="flex-start"
+        className="flex-start item-start justify-start"
       >
         <FiArrowLeft size={24} />
       </Button>
