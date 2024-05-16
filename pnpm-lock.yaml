@@ -20,6 +20,12 @@ importers:
       '@uploadthing/react':
         specifier: ^6.5.4
         version: 6.5.4(@uploadthing/mime-types@0.2.10)(next@14.2.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(uploadthing@6.10.4(express@4.19.2)(next@14.2.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(tailwindcss@3.4.3))
+      '@upstash/ratelimit':
+        specifier: ^1.1.3
+        version: 1.1.3
+      '@upstash/redis':
+        specifier: ^1.31.1
+        version: 1.31.1
       '@vercel/postgres':
         specifier: ^0.8.0
         version: 0.8.0
@@ -47,6 +53,12 @@ importers:
       postgres:
         specifier: ^3.4.3
         version: 3.4.4
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
+      react-dom:
+        specifier: ^18.3.1
+        version: 18.3.1(react@18.3.1)
       react-icons:
         specifier: ^5.2.1
         version: 5.2.1(react@18.3.1)
@@ -807,6 +819,16 @@ packages:
     peerDependenciesMeta:
       '@uploadthing/mime-types':
         optional: true
+
+  '@upstash/core-analytics@0.0.8':
+    resolution: {integrity: sha512-MCJoF+Y8fkzq4NRLG7kEHjtGyMsZ2DICBdmEdwoK9umoSrfkzgBlYdZiHTIaewyt9PGaMZCHOasz0LAuMpxwxQ==}
+    engines: {node: '>=16.0.0'}
+
+  '@upstash/ratelimit@1.1.3':
+    resolution: {integrity: sha512-rl+GMvPdZJ9xPDIvIrqRl/g0nzAEaH75hwR5lXAKW8zPPplD/AeliDCHwuwcFCPIjg49FKyA1oc5H473WkVFrQ==}
+
+  '@upstash/redis@1.31.1':
+    resolution: {integrity: sha512-lAsOo+kYjD5lpP+lH/nxHfzFYeCkWBwwKsyZZmh0AoOumBA9ZpS52Gorm7c2bmNu3UFijpPiLSFdW/nRdjbRpQ==}
 
   '@vercel/postgres@0.8.0':
     resolution: {integrity: sha512-/QUV9ExwaNdKooRjOQqvrKNVnRvsaXeukPNI5DB1ovUTesglfR/fparw7ngo1KUWWKIVpEj2TRrA+ObRHRdaLg==}
@@ -3378,6 +3400,18 @@ snapshots:
       std-env: 3.7.0
     optionalDependencies:
       '@uploadthing/mime-types': 0.2.10
+
+  '@upstash/core-analytics@0.0.8':
+    dependencies:
+      '@upstash/redis': 1.31.1
+
+  '@upstash/ratelimit@1.1.3':
+    dependencies:
+      '@upstash/core-analytics': 0.0.8
+
+  '@upstash/redis@1.31.1':
+    dependencies:
+      crypto-js: 4.2.0
 
   '@vercel/postgres@0.8.0':
     dependencies:

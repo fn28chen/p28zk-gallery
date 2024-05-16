@@ -1,5 +1,5 @@
 "use client";
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut, SignIn, SignInButton, UserButton } from "@clerk/nextjs";
 import { StyledHeader } from "../global/Styled";
 import { UploadButton } from "~/utils/uploadthing";
 import { useRouter } from "next/navigation";
@@ -20,9 +20,8 @@ export default function TopNav() {
         <StyledHeader tag="h2" children="Gallery" />
       </Link>
 
-      <div className="flex flex-row gap-2">
+      <div className="flex flex-row items-center justify-center gap-2">
         <SignedOut>
-          <SignInButton />
           <Button
             className="flex w-full items-center justify-center rounded bg-zinc-700 shadow duration-300 ease-in-out hover:scale-110 hover:bg-zinc-800 hover:shadow-xl dark:bg-zinc-800 dark:hover:bg-zinc-700"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -30,6 +29,9 @@ export default function TopNav() {
             <div className="p-2 text-zinc-100">
               {theme === "dark" ? <FiMoon /> : <FiSun />}
             </div>
+          </Button>
+          <Button className="flex w-full items-center justify-center rounded bg-zinc-700 shadow duration-300 ease-in-out hover:scale-110 hover:bg-zinc-800 hover:shadow-xl dark:bg-zinc-800 dark:hover:bg-zinc-700">
+            <SignInButton />
           </Button>
         </SignedOut>
         <SignedIn>
