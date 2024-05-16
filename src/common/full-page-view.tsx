@@ -13,7 +13,7 @@ export async function FullPageImageView(props: { photoId: string }) {
   const userInfo = await clerkClient.users.getUser(image.userId);
 
   return (
-    <div className="flex flex-col h-full w-screen min-w-0 text-white items-center justify-center">
+    <div className="flex h-full w-screen min-w-0 text-white items-center justify-center">
       <Link href="/">
         <Button
           variant="outline"
