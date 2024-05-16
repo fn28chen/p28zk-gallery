@@ -1,4 +1,5 @@
 import { clerkClient } from "@clerk/nextjs/server";
+import { FiArrowLeft } from "react-icons/fi";
 import { Button } from "~/components/ui/button";
 import { deleteImage, getImage } from "~/server/queries";
 
@@ -12,10 +13,15 @@ export async function FullPageImageView(props: { photoId: string }) {
 
   return (
     <div className="flex h-full w-screen min-w-0 items-center justify-center text-white">
+      <Button
+        variant="outline"
+      >
+        <FiArrowLeft size={24} />
+      </Button>
       <div className="md:max-w-[768px] lg:max-w-[1024px] xl:w-full">
         <img src={image.url} className="object-contain" alt={image.name} />
       </div>
-      <div className="flex h-full w-40 md:w-56 lg:w-72 flex-shrink-0 flex-col border-l">
+      <div className="flex h-full w-40 flex-shrink-0 flex-col border-l md:w-56 lg:w-72">
         <div className="border-b p-2 text-center text-xl">{image.name}</div>
 
         <div className="p-2">
