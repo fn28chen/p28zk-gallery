@@ -8,7 +8,7 @@ export const dynamic = "force-dynamic";
 
 async function Images() {
   const images = await getMyImages();
-  console.log(images);
+  // console.log(images);
 
   return (
     <div className="m-4 grid max-w-[1024px] grid-cols-12 gap-1">
