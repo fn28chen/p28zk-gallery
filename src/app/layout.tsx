@@ -7,6 +7,8 @@ import TopNav from "~/components/layout/TopNav";
 import { extractRouterConfig } from "uploadthing/server";
 import { ourFileRouter } from "./api/uploadthing/core";
 import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
+import { Toaster } from "~/components/ui/sonner";
+import { ThemeProvider } from "~/components/global/theme-provider";
 
 const font = Space_Grotesk({
   subsets: ["latin"],
@@ -39,10 +41,18 @@ export default function RootLayout({
       />
       <html lang="en">
         <body className={`font-sans ${font.variable} flex-col gap-4`}>
-          <TopNav />
-          <main className="flex items-center justify-center">{children}</main>
-          {modal}
-          <div id='modal-root'/>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <TopNav />
+            <main className="flex items-center justify-center">{children}</main>
+            {modal}
+            <div id="modal-root" />
+          </ThemeProvider>
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>
