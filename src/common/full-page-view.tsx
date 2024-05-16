@@ -14,14 +14,14 @@ export async function FullPageImageView(props: { photoId: string }) {
 
   return (
     <div className="flex h-full w-screen min-w-0 text-white justify-center">
-      <Link href="/">
+      {/* <Link href="/">
         <Button
           variant="outline"
           className="self-start items-start justify-start"
         >
           <FiArrowLeft size={24} />
         </Button>
-      </Link>
+      </Link> */}
       <div className="h-full content-center justify-center md:max-w-[768px] lg:max-w-[1024px] xl:w-full">
         <img src={image.url} className="object-contain" alt={image.name} />
       </div>

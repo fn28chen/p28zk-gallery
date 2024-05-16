@@ -8,21 +8,21 @@ export const dynamic = "force-dynamic";
 
 async function Images() {
   const images = await getMyImages();
-  // console.log(images);
+  console.log(images);
 
   return (
-    <div className="m-4 grid max-w-[1024px] grid-cols-12 gap-1">
+    <div className="m-4 grid lg:max-w-[1536px] xl:w-full grid-cols-12 gap-1">
       {images.map((image) => (
         <div
           key={image.id}
-          className="col-span-3 max-h-48 max-w-48 overflow-hidden"
+          className="col-span-6 md:col-span-3 lg:col-span-2 max-h-48 max-w-64 overflow-hidden"
         >
           <Link href={`/img/${image.id}`}>
             <Image
               src={image.url}
               title={image.name}
               style={{ objectFit: "contain" }}
-              width={192}
+              width={256}
               height={192}
               alt={image.name}
             />

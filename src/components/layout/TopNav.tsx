@@ -1,5 +1,11 @@
 "use client";
-import { SignedIn, SignedOut, SignIn, SignInButton, UserButton } from "@clerk/nextjs";
+import {
+  SignedIn,
+  SignedOut,
+  SignIn,
+  SignInButton,
+  UserButton,
+} from "@clerk/nextjs";
 import { StyledHeader } from "../global/Styled";
 import { UploadButton } from "~/utils/uploadthing";
 import { useRouter } from "next/navigation";
@@ -7,7 +13,8 @@ import Link from "next/link";
 import { SimpleUploadButton } from "../ui/upload-button";
 import { useTheme } from "next-themes";
 
-import { FiMoon, FiSun } from "react-icons/fi";
+// import { FiMoon, FiSun } from "react-icons/fi";
+import { Sun, Moon } from "../svg/ThemeIcon";
 import { Button } from "../ui/button";
 
 export default function TopNav() {
@@ -27,10 +34,10 @@ export default function TopNav() {
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           >
             <div className="p-2 text-zinc-100">
-              {theme === "dark" ? <FiMoon /> : <FiSun />}
+              {theme === "dark" ? <Moon /> : <Sun />}
             </div>
           </Button>
-          <Button className="flex w-full items-center justify-center rounded bg-zinc-700 shadow duration-300 ease-in-out hover:scale-110 hover:bg-zinc-800 hover:shadow-xl dark:bg-zinc-800 dark:hover:bg-zinc-700">
+          <Button className="flex w-full items-center justify-center rounded bg-zinc-700 shadow duration-300 ease-in-out hover:scale-110 hover:bg-zinc-800 hover:shadow-xl dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:text-white">
             <SignInButton />
           </Button>
         </SignedOut>
@@ -40,9 +47,16 @@ export default function TopNav() {
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           >
             <div className="text-zinc-900 dark:text-zinc-100">
-              {theme === "dark" ? <FiMoon /> : <FiSun />}
+              {theme === "dark" ? <Moon suppressHydrationWarning /> : <Sun suppressHydrationWarning />}
             </div>
           </Button>
+          {/* <UploadButton
+            endpoint="imageUploader"
+            onClientUploadComplete={() => {
+              router.refresh();
+            }}
+            className="ut-button:bg-blue-500 ut:button:ut-readying:bg-blue-500/50 mt-4 text-sm"
+          /> */}
           <SimpleUploadButton />
           <UserButton />
         </SignedIn>
