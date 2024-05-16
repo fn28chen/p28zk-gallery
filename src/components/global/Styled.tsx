@@ -27,7 +27,7 @@ export function StyledHeader({ tag, children }: StyledHeaderProps) {
   }
   return (
     <Tag
-      className={`${fontSize} font-semibold text-gray-200 dark:text-gray-800`}
+      className={`${fontSize} font-semibold text-gray-800 dark:text-gray-200`}
       style={{
         margin: "revert",
       }}

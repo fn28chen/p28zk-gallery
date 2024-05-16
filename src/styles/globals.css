@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    @apply bg-black text-white;
-}
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -76,4 +73,8 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
 }

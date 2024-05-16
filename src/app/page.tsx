@@ -11,7 +11,7 @@ async function Images() {
   console.log(images);
 
   return (
-    <div className="m-4 grid max-w-[1024px] grid-cols-12 gap-4">
+    <div className="m-4 grid max-w-[1024px] grid-cols-12 gap-1">
       {images.map((image) => (
         <div
           key={image.id}
