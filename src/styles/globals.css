@@ -78,3 +78,14 @@
 ::-webkit-scrollbar {
   width: 8px;
 }
+
+dialog {
+  position: fixed !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  width: calc(100%) !important;
+  height: calc(100%) !important;
+  user-select: text !important;
+  visibility: visible !important;
+  overflow: auto !important;
+}
