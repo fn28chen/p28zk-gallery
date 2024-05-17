@@ -20,10 +20,10 @@ export function Modal({ children }: { children: React.ReactNode }) {
     router.back();
   }
 
-  return createPortal(
+  return (
     <dialog
       ref={dialogRef}
-      className="relative h-full w-full bg-black/90 p-4"
+      className="relative h-full w-full bg-black/80 p-4"
       onClose={onDismiss}
     >
       <Button
@@ -34,7 +34,6 @@ export function Modal({ children }: { children: React.ReactNode }) {
         <IoMdClose />
       </Button>
       {children}
-    </dialog>,
-    document.getElementById("modal-root")!,
+    </dialog>
   );
 }
